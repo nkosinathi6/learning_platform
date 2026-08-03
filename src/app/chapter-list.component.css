@@ -1,0 +1,81 @@
+.chapter-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.chapter-layout {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 320px minmax(0, 1fr);
+}
+
+.chapter-sidebar {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  padding: 1.25rem;
+}
+
+.chapter-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.chapter-card {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chapter-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: #111827;
+  font-size: 0.95rem;
+}
+
+.chapter-count {
+  color: #6b7280;
+}
+
+.lesson-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.lesson-link {
+  display: block;
+  color: #475569;
+  padding: 0.65rem 0.85rem;
+  border-radius: 14px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lesson-link:hover,
+.lesson-link:focus-visible {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.chapter-preview {
+  display: grid;
+  align-content: start;
+}
+
+.empty-state {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  padding: 1.5rem;
+}
+
+.status-message {
+  margin: 0;
+  color: #64748b;
+}

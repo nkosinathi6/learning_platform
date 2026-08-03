@@ -1,0 +1,54 @@
+.grade-selector {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.grade-card {
+  display: block;
+  padding: 1.5rem;
+  border-radius: 22px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grade-card:hover,
+.grade-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 20px 30px rgba(16, 185, 129, 0.12);
+}
+
+.grade-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.grade-tag {
+  font-weight: 700;
+}
+
+.grade-count {
+  color: #10b981;
+}
+
+.grade-card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.grade-note {
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
+}

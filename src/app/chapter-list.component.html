@@ -1,0 +1,42 @@
+@if (grade(); as currentGrade) {
+  <section class="chapter-page">
+    <div class="page-header">
+      <p class="eyebrow">Chapter overview</p>
+      <h2>{{ currentGrade.title }}</h2>
+      <p class="subtitle">Pick a lesson to open the study dashboard.</p>
+    </div>
+
+    <div class="chapter-layout">
+      <aside class="chapter-sidebar">
+        <h3 class="sidebar-title">Chapters</h3>
+        <ul class="chapter-list">
+          @for (chapter of currentGrade.chapters; track chapter.id) {
+            <li class="chapter-card">
+              <div class="chapter-card-header">
+                <span>{{ chapter.title }}</span>
+                <span class="chapter-count">{{ chapter.lessons.length }} lessons</span>
+              </div>
+              <ol class="lesson-items">
+                @for (lesson of chapter.lessons; track lesson.id) {
+                  <li>
+                    <a class="lesson-link" [routerLink]="['/grade', currentGrade.id, 'chapter', chapter.id, 'lesson', lesson.id]">
+                      {{ lesson.title }}
+                    </a>
+                  </li>
+                }
+              </ol>
+            </li>
+          }
+        </ul>
+      </aside>
+
+      <div class="chapter-preview">
+        <div class="empty-state">
+          <p>Select a lesson to review notes, play the video, read the summary, or complete the quiz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+} @else {
+  <p class="status-message">Grade not found.</p>
+}

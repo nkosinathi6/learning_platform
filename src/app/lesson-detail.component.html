@@ -1,0 +1,83 @@
+@if (lessonContext(); as context) {
+  <section class="lesson-detail-page">
+    <div class="page-header">
+      <p class="eyebrow">{{ context.chapter.title }}</p>
+      <h2>{{ context.lesson.title }}</h2>
+      <div class="step-indicator">
+        <span>Step {{ context.position }} of {{ context.total }}</span>
+        <div class="progress-track">
+          <span class="progress-fill" [style.width.%]="(context.position / context.total) * 100"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="lesson-detail-layout">
+      <aside class="lesson-sidebar">
+        <h3 class="sidebar-heading">Lessons</h3>
+        <ol class="lesson-nav">
+          @for (item of context.chapter.lessons; track item.id) {
+            <li>
+              <a
+                [routerLink]="['/grade', context.grade.id, 'chapter', context.chapter.id, 'lesson', item.id]"
+                [class.active]="item.id === context.lesson.id"
+              >
+                <span class="lesson-dot"></span>
+                {{ item.title }}
+              </a>
+            </li>
+          }
+        </ol>
+      </aside>
+
+      <div class="lesson-content">
+        <nav class="tab-nav" aria-label="Lesson sections">
+          <button type="button" class="tab-button" [class.active]="tab() === 'notes'" (click)="tab.set('notes')">Notes</button>
+          <button type="button" class="tab-button" [class.active]="tab() === 'video'" (click)="tab.set('video')">Video</button>
+          <button type="button" class="tab-button" [class.active]="tab() === 'summary'" (click)="tab.set('summary')">Summary</button>
+          <button type="button" class="tab-button" [class.active]="tab() === 'assessment'" (click)="tab.set('assessment')">Assessment</button>
+        </nav>
+
+        @if (tab() === 'notes') {
+          <article class="tab-panel">
+            <div class="panel-card" [innerHTML]="context.lesson.notes"></div>
+          </article>
+        }
+
+        @if (tab() === 'video') {
+          <article class="tab-panel">
+            <div class="video-card">
+              @if (videoUrl; as safeUrl) {
+                <div class="video-frame">
+                  <iframe [src]="safeUrl" title="Lesson video" allowfullscreen></iframe>
+                </div>
+              } @else {
+                <div class="video-empty">No video available.</div>
+              }
+            </div>
+          </article>
+        }
+
+        @if (tab() === 'summary') {
+          <article class="tab-panel">
+            <div class="panel-card">
+              <p>{{ context.lesson.summary }}</p>
+            </div>
+          </article>
+        }
+
+        @if (tab() === 'assessment') {
+          <article class="tab-panel">
+            <assessment [questions]="context.lesson.assessment"></assessment>
+          </article>
+        }
+
+        <div class="lesson-actions">
+          <button type="button" class="btn-secondary" (click)="goBack()">Back</button>
+          <button type="button" class="btn-primary" (click)="tab.set('summary')">Continue to summary</button>
+        </div>
+      </div>
+    </div>
+  </section>
+} @else {
+  <p class="status-message">Lesson not found.</p>
+}

@@ -1,0 +1,156 @@
+.lesson-detail-page {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.lesson-detail-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.lesson-sidebar {
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 24px;
+  padding: 1.25rem;
+}
+
+.lesson-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lesson-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
+  color: #475569;
+}
+
+.lesson-nav a.active,
+.lesson-nav a:hover,
+.lesson-nav a:focus-visible {
+  background: rgba(59, 130, 246, 0.12);
+  color: #1d4ed8;
+}
+
+.lesson-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.lesson-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  border: none;
+  background: transparent;
+  padding: 0.85rem 1rem;
+  color: #6b7280;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-button.active {
+  color: #111827;
+  border-color: #10b981;
+}
+
+.panel-card,
+.video-card,
+.empty-state {
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 22px;
+  padding: 1.5rem;
+}
+
+.video-card {
+  min-height: 270px;
+  display: grid;
+  place-items: center;
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #111827;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-empty {
+  color: #6b7280;
+}
+
+.lesson-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 14px;
+  padding: 0.95rem 1.4rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #111827;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.step-indicator {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.progress-track {
+  width: min(100%, 18rem);
+  height: 0.55rem;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #10b981, #3b82f6);
+}
+
+.status-message {
+  margin: 0;
+  color: #64748b;
+}

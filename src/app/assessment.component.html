@@ -1,0 +1,33 @@
+@if (questionList().length) {
+  <section class="assessment-card">
+    <h3>Assessment</h3>
+    <form (submit)="onSubmit($event)">
+      @for (question of questionList(); track question.id; let index = $index) {
+        <fieldset class="question-card">
+          <legend>{{ index + 1 }}. {{ question.text }}</legend>
+          @for (choice of question.choices; track choice; let choiceIndex = $index) {
+            <label class="choice-option">
+              <input
+                type="radio"
+                [name]="question.id"
+                (change)="select(question.id, choiceIndex)"
+                [checked]="answers()[question.id] === choiceIndex"
+              />
+              <span>{{ choice }}</span>
+            </label>
+          }
+        </fieldset>
+      }
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+
+    @if (submitted()) {
+      <div class="results-card">
+        <p class="score-text">Score: {{ score() }} / {{ questionList().length }}</p>
+        <button type="button" class="retake-button" (click)="reset()">Retake</button>
+      </div>
+    }
+  </section>
+} @else {
+  <p class="empty-state">No assessment for this lesson.</p>
+}
