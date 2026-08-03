@@ -12,7 +12,7 @@ import { AssessmentComponent } from './assessment.component';
   template: `
     <section class="lesson-detail-page" *ngIf="lessonContext() as ctx">
       <div class="page-header">
-        <p class="eyebrow">{{ ctx.chapter?.title || 'Chapter' }}</p>
+        <p class="eyebrow">{{ ctx.chapter.title }}</p>
         <h2>{{ ctx.lesson.title }}</h2>
         <div class="step-indicator">
           <span>Step {{ ctx.position }} of {{ ctx.total }}</span>
@@ -26,9 +26,9 @@ import { AssessmentComponent } from './assessment.component';
         <aside class="lesson-sidebar">
           <div class="sidebar-heading">Lessons</div>
           <ol class="lesson-nav">
-            <li *ngFor="let item of ctx.chapter?.lessons">
+            <li *ngFor="let item of ctx.chapter.lessons">
               <a
-                [routerLink]="['/grade', ctx.grade?.id, 'chapter', ctx.chapter?.id, 'lesson', item.id]"
+                [routerLink]="['/grade', ctx.grade.id, 'chapter', ctx.chapter.id, 'lesson', item.id]"
                 [class.active]="item.id === ctx.lesson.id"
               >
                 <span class="lesson-dot"></span>
