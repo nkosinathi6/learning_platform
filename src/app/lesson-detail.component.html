@@ -31,17 +31,11 @@
 
       <div class="lesson-content">
         <nav class="tab-nav" aria-label="Lesson sections">
-          <button type="button" class="tab-button" [class.active]="tab() === 'notes'" (click)="tab.set('notes')">Notes</button>
           <button type="button" class="tab-button" [class.active]="tab() === 'video'" (click)="tab.set('video')">Video</button>
-          <button type="button" class="tab-button" [class.active]="tab() === 'summary'" (click)="tab.set('summary')">Summary</button>
+          <button type="button" class="tab-button" [class.active]="tab() === 'tutorial'" (click)="tab.set('tutorial')">Tutorial</button>
+          <button type="button" class="tab-button" [class.active]="tab() === 'summary'" (click)="tab.set('summary')">Summary Notes</button>
           <button type="button" class="tab-button" [class.active]="tab() === 'assessment'" (click)="tab.set('assessment')">Assessment</button>
         </nav>
-
-        @if (tab() === 'notes') {
-          <article class="tab-panel">
-            <div class="panel-card" [innerHTML]="context.lesson.notes"></div>
-          </article>
-        }
 
         @if (tab() === 'video') {
           <article class="tab-panel">
@@ -54,6 +48,12 @@
                 <div class="video-empty">No video available.</div>
               }
             </div>
+          </article>
+        }
+
+        @if (tab() === 'tutorial') {
+          <article class="tab-panel">
+            <div class="panel-card" [innerHTML]="context.lesson.tutorial"></div>
           </article>
         }
 

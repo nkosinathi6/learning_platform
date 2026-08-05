@@ -17,7 +17,7 @@ export class LessonDetailComponent {
   private router = inject(Router);
   private sanitizer = inject(DomSanitizer);
 
-  readonly tab = signal<'notes' | 'video' | 'summary' | 'assessment'>('notes');
+  readonly tab = signal<'video' | 'tutorial' | 'summary' | 'assessment'>('video');
 
   readonly lessonContext = computed(() => {
     const gradeId = this.route.snapshot.paramMap.get('gradeId');
