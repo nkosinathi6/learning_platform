@@ -11,18 +11,19 @@
 
 .grade-card {
   display: block;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-radius: 22px;
-  background: #f8fafc;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(184, 150, 10, 0.14);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .grade-card:hover,
 .grade-card:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(16, 185, 129, 0.35);
-  box-shadow: 0 20px 30px rgba(16, 185, 129, 0.12);
+  border-color: rgba(184, 150, 10, 0.6);
+  box-shadow: 0 20px 30px rgba(184, 150, 10, 0.12);
+  background: rgba(184, 150, 10, 0.06);
 }
 
 .grade-card-top {
@@ -30,7 +31,7 @@
   justify-content: space-between;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  color: #6b7280;
+  color: rgba(240, 236, 224, 0.58);
   font-size: 0.9rem;
 }
 
@@ -39,18 +40,18 @@
 }
 
 .grade-count {
-  color: #10b981;
+  color: var(--gold-light);
 }
 
 .grade-card h3 {
   margin: 0 0 0.75rem;
-  font-size: 1.25rem;
-  color: black;
-  font-family: system-ui;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: var(--text);
 }
 
 .grade-note {
   margin: 0;
-  color: #475569;
+  color: rgba(240, 236, 224, 0.62);
   line-height: 1.6;
 }

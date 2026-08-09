@@ -1,1 +1,557 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --gold: #b8960a;
+  --gold-light: #d4aa1a;
+  --gold-pale: #e8d080;
+  --teal: #1b9fa0;
+  --teal-dark: #0e6b6c;
+  --navy: #1a1f6e;
+  --navy-light: #2d34a0;
+  --blush: #e8d8d0;
+  --bg: #0d1035;
+  --bg2: #111540;
+  --text: #f0ece0;
+  --text-soft: #d9e2ec;
+  --text-muted: #9a9070;
+  --ink: #172033;
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-border: rgba(184, 150, 10, 0.18);
+  --shadow: rgba(13, 16, 53, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+html {
+  margin: 0;
+  min-height: 100%;
+  font-family: 'DM Sans', 'Segoe UI', Arial, sans-serif;
+  background:
+    radial-gradient(ellipse 60% 40% at 80% 4%, rgba(27, 159, 160, 0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 30% at 20% 100%, rgba(184, 150, 10, 0.12) 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(13, 16, 53, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184, 150, 10, 0.2);
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 88px;
+  padding: 18px 60px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-logo img {
+  height: 46px;
+  width: 46px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: rgba(240, 236, 224, 0.65);
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--gold-light);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.6px;
+  padding: 9px 24px;
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+.app-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 56px 1.5rem 4rem;
+}
+
+.page-frame {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  border: 1px solid rgba(184, 150, 10, 0.18);
+  box-shadow: 0 18px 50px var(--shadow);
+  padding: 2rem;
+}
+
+.page-header {
+  margin-bottom: 1.75rem;
+}
+
+.page-header h2 {
+  margin: 0.25rem 0 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 2.7vw, 3.3rem);
+  line-height: 1.05;
+  color: var(--text);
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.78rem;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.subtitle {
+  margin: 0;
+  color: rgba(240, 236, 224, 0.62);
+  max-width: 44rem;
+  line-height: 1.75;
+}
+
+.grade-selector,
+.chapter-page,
+.lesson-detail-page {
+  min-height: 380px;
+}
+
+.grade-selector .page-header,
+.chapter-page .page-header,
+.lesson-detail-page .page-header {
+  padding-top: 0.5rem;
+}
+
+.grade-selector .page-header h2 {
+  font-style: normal;
+}
+
+.grade-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.grade-card {
+  display: block;
+  padding: 1.75rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(184, 150, 10, 0.14);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.grade-card:hover,
+.grade-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(184, 150, 10, 0.6);
+  box-shadow: 0 20px 30px rgba(184, 150, 10, 0.12);
+  background: rgba(184, 150, 10, 0.06);
+}
+
+.grade-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: rgba(240, 236, 224, 0.58);
+  font-size: 0.9rem;
+}
+
+.grade-tag {
+  font-weight: 700;
+}
+
+.grade-count {
+  color: var(--gold-light);
+}
+
+.grade-card h3 {
+  margin: 0 0 0.75rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem;
+  color: var(--text);
+}
+
+.grade-note {
+  margin: 0;
+  color: rgba(240, 236, 224, 0.62);
+  line-height: 1.6;
+}
+
+.chapter-layout,
+.lesson-detail-layout {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.chapter-layout {
+  grid-template-columns: 320px minmax(0, 1fr);
+}
+
+.chapter-sidebar,
+.lesson-sidebar {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(184, 150, 10, 0.12);
+  border-radius: 24px;
+  padding: 1.25rem;
+}
+
+.sidebar-title,
+.sidebar-heading {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.chapter-list,
+.lesson-nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chapter-card {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.chapter-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.chapter-count {
+  color: var(--text-muted);
+}
+
+.lesson-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.lesson-link {
+  display: block;
+  color: rgba(240, 236, 224, 0.7);
+  padding: 0.65rem 0.85rem;
+  border-radius: 14px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.lesson-link:hover,
+.lesson-link:focus-visible {
+  background: rgba(27, 159, 160, 0.2);
+  color: var(--text);
+}
+
+.chapter-preview {
+  display: grid;
+  align-content: start;
+}
+
+.empty-state,
+.panel-card,
+.video-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(184, 150, 10, 0.12);
+  border-radius: 22px;
+  padding: 1.5rem;
+}
+
+.empty-state,
+.video-empty,
+.status-message {
+  margin: 0;
+  color: rgba(240, 236, 224, 0.64);
+}
+
+.lesson-nav {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lesson-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 14px;
+  color: rgba(240, 236, 224, 0.7);
+}
+
+.lesson-nav a.active,
+.lesson-nav a:hover,
+.lesson-nav a:focus-visible {
+  background: rgba(184, 150, 10, 0.2);
+  color: var(--text);
+}
+
+.lesson-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.lesson-content {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tab-nav {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  border: none;
+  background: transparent;
+  padding: 0.85rem 1rem;
+  color: rgba(240, 236, 224, 0.62);
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-button.active {
+  color: var(--gold-pale);
+  border-color: var(--gold);
+}
+
+.video-card {
+  min-height: 270px;
+  display: grid;
+  place-items: center;
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #111827;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.lesson-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  border: none;
+  border-radius: 14px;
+  padding: 0.95rem 1.4rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(240, 236, 224, 0.2);
+}
+
+.step-indicator {
+  display: grid;
+  gap: 0.5rem;
+  color: rgba(240, 236, 224, 0.68);
+}
+
+.progress-track {
+  width: min(100%, 18rem);
+  height: 0.55rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--teal));
+}
+
+.assessment-card {
+  display: grid;
+  gap: 1rem;
+}
+
+.assessment-card h3 {
+  color: var(--text);
+  font-family: 'Playfair Display', serif;
+}
+
+.question-card {
+  border: 1px solid rgba(184, 150, 10, 0.2);
+  border-radius: 16px;
+  padding: 1rem;
+  display: grid;
+  gap: 0.75rem;
+  color: var(--text-soft);
+}
+
+.question-card legend {
+  padding: 0 0.5rem;
+}
+
+.choice-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(240, 236, 224, 0.8);
+}
+
+.submit-button,
+.retake-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 700;
+}
+
+.results-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.score-text {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+@media (max-width: 768px) {
+  .top-nav {
+    padding: 14px 24px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .app-main {
+    padding: 40px 24px;
+  }
+
+  .page-frame {
+    padding: 1rem;
+  }
+
+  .chapter-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-actions {
+    justify-content: center;
+  }
+}
+

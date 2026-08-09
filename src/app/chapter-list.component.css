@@ -10,8 +10,8 @@
 }
 
 .chapter-sidebar {
-  background: #f8fafc;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(184, 150, 10, 0.12);
   border-radius: 24px;
   padding: 1.25rem;
 }
@@ -33,12 +33,12 @@
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
-  color: #111827;
+  color: var(--text-soft);
   font-size: 0.95rem;
 }
 
 .chapter-count {
-  color: #6b7280;
+  color: var(--text-muted);
 }
 
 .lesson-items {
@@ -51,7 +51,7 @@
 
 .lesson-link {
   display: block;
-  color: #475569;
+  color: rgba(240, 236, 224, 0.72);
   padding: 0.65rem 0.85rem;
   border-radius: 14px;
   transition: background 0.2s ease, color 0.2s ease;
@@ -59,8 +59,8 @@
 
 .lesson-link:hover,
 .lesson-link:focus-visible {
-  background: rgba(59, 130, 246, 0.12);
-  color: #1d4ed8;
+  background: rgba(27, 159, 160, 0.2);
+  color: var(--text);
 }
 
 .chapter-preview {
@@ -69,13 +69,13 @@
 }
 
 .empty-state {
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(184, 150, 10, 0.12);
   border-radius: 22px;
   padding: 1.5rem;
 }
 
 .status-message {
   margin: 0;
-  color: #64748b;
+  color: rgba(240, 236, 224, 0.7);
 }

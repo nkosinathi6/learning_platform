@@ -1,13 +1,19 @@
 <header class="app-header">
-  <div class="header-row">
-    <div>
-      <p class="eyebrow">Learning Platform</p>
-      <h1>Secondary school lessons</h1>
+  <nav class="top-nav" aria-label="Main navigation">
+    <div class="nav-logo">
+      <img src="/g4.png" alt="ZetaGen logo">
+      <span class="nav-brand">ZetaGen</span>
     </div>
-    <nav aria-label="Main navigation">
-      <a routerLink="/" class="nav-link">Home</a>
-    </nav>
-  </div>
+
+    <ul class="nav-links">
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/grade-selector">Grades</a></li>
+      <li><a routerLink="/">Features</a></li>
+      <li><a routerLink="/">About</a></li>
+    </ul>
+
+    <a routerLink="/grade-selector" class="nav-cta">Get Started</a>
+  </nav>
 </header>
 
 <main class="app-main">
